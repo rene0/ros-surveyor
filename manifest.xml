@@ -1,0 +1,14 @@
+<package>
+  <description brief="surveyor">
+
+     surveyor
+
+  </description>
+  <author>Rene Ladan</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/surveyor</url>
+  <depend package="roscpp"/>
+  <depend package="opencv2"/>
+  <depend package="image_transport"/>
+</package>
