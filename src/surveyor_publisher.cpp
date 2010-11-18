@@ -197,7 +197,7 @@ int set_surveyor_quality(int socket, int quality)
 	}
 	if (strncmp("##quality - ", buf, 12) || buf[12] != quality + '0') // the protocol description is wrong!
 	{
-		ROS_WARN("set_surveyor_quality: data mismatch, expected ##quality %c", quality + '0');
+		ROS_WARN("set_surveyor_quality: data mismatch, expected ##quality - %c", quality + '0');
 		return -1;
 	}
 
@@ -283,10 +283,10 @@ int main(int argc, char *argv[])
 		ROS_ERROR("Invalid number of cameras chosen (%i), must be 1 or 2", numcams);
 		return 1;
 	}
-	nh.param("format", format, 5); // 3,5,7,9
+	nh.param("format", format, 5);
 	if (format != 3 && format != 5 && format != 7 && format != 9)
 	{
-		ROS_ERROR("Invalid resolution chosen (%i), must be one of 3,5,7,9", format);
+		ROS_ERROR("Invalid resolution chosen (%i), must be one of 3, 5, 7, or 9", format);
 		return 1;
 	}
 	nh.param("quality", quality, 3); // 8 (low) .. 1 (high)
