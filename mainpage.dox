@@ -2,12 +2,28 @@
 \mainpage
 \htmlinclude manifest.html
 
-\b surveyor is ... 
+\b surveyor is a driver for the Surveyor Vision System camera.
 
-<!-- 
-Provide an overview of your package.
--->
+urveyor_publisher node publishes pairs of images from the surveyor camera. The images adhere to the image_transport standard defined by ROS.
+They are obtained from the camera in JPEG format and are decompressed by the node.
+This means that the left image is published under /cam/surveyor/left/image_raw and that the right image is published under /cam/surveyor/right/image_raw.
+Here cam is the name of the "main" topic.
 
+Parameters
+
+The node accepts these parameters (default values in parentheses):
+_ip (192.168.2.111) - IP address of the Surveyor Vision System camera
+_lport (10001) - port address of the left camera
+_rport (10002) - port address of the right camera
+_numcams (2) - whether to use 2 cameras or only the left camera
+_format (5) - resolution of the picture (3=160x120, 5=320x240, 7=640x480, 9=1280x1024)
+_quality (3) - JPEG compression quality (1=good ... 8=bad)
+_auto (7) - bitmask of switches for automatic control:
+0 (000) - all off
+1 (001) - automatic gain control on
+2 (010) - automatic white balance on
+4 (100) - automatic exposure on
+7 (111) - all on
 
 \section codeapi Code API
 

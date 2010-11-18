@@ -1,13 +1,13 @@
 <package>
   <description brief="surveyor">
 
-     surveyor
+     Surveyor is a driver for the Surveyor Vision System camera.
 
   </description>
   <author>Rene Ladan</author>
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
-  <url>http://ros.org/wiki/surveyor</url>
+  <url>http://www.surveyor.com/stereo/stereo_info.html</url>
   <depend package="roscpp"/>
   <depend package="opencv2"/>
   <depend package="image_transport"/>
