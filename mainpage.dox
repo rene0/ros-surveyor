@@ -4,7 +4,7 @@
 
 \b surveyor is a driver for the Surveyor Vision System camera.
 
-urveyor_publisher node publishes pairs of images from the surveyor camera. The images adhere to the image_transport standard defined by ROS.
+The surveyor node publishes pairs of images from the surveyor camera. The images adhere to the image_transport standard defined by ROS.
 They are obtained from the camera in JPEG format and are decompressed by the node.
 This means that the left image is published under /cam/surveyor/left/image_raw and that the right image is published under /cam/surveyor/right/image_raw.
 Here cam is the name of the "main" topic.

@@ -299,7 +299,7 @@ int main(int argc, char *argv[])
 	std::string ip;
 	bool sendframes;
 
-	ros::init(argc, argv, "surveyor_publisher");
+	ros::init(argc, argv, "surveyor");
 	ros::NodeHandle nh("~");
 
 	nh.param("numcams", numcams, 2);
