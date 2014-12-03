@@ -330,6 +330,7 @@ int main(int argc, char *argv[])
 	nh.param("lport", port[0], 10001);
 	nh.param("rport", port[1], 10002);
 	ROS_INFO("numcams=%i format=%i quality=%i ip=%s lport=%i rport=%i", numcams, format, quality, ip.c_str(), port[0], port[1]);
+
 	for (i = 0; i < numcams; i++)
 	{
 		srv_socket_desc[i] = open_TCP_client(ip, port[i]);
@@ -388,10 +389,12 @@ int main(int argc, char *argv[])
 	int count = 0;
 	long unsigned numBytes = 0;
 
-	while (nh.ok()) {
+	while (nh.ok())
+	{
 		ros::spinOnce(); // listen for service requests
 
-		if (count++ % COUNT == 0) {
+		if (count++ % COUNT == 0)
+		{
 			ros::Time t(ros::Time::now());
 			ros::Duration d(t - t_prev);
 			ROS_INFO("%.1f fps, average %.0f bytes/frame", float(COUNT)/d.toSec(), float(numBytes)/float(numcams)/COUNT);
@@ -404,9 +407,10 @@ int main(int argc, char *argv[])
 		for (i = 0; sendframes && i < numcams; i++)
 		{
 			length[i] = get_surveyor_frame(srv_socket_desc[i], imageBuf[i]);
-			if (length[i] == -1) {
+			if (length[i] == -1)
+			{
 				sendframes = false;
-				ROS_WARN("Getting frame failed for #%i", i);
+				ROS_WARN("Getting frame failed for camera %i", i);
 			}
 		}
 
@@ -417,7 +421,8 @@ int main(int argc, char *argv[])
 			cam[i].header.stamp = pt;
 			cam[i].header.seq = count;
 			cam[i].header.frame_id = "1"; // 0 = no frame, 1 = global
-			switch (format) {
+			switch (format)
+			{
 			case 3:
 				cam[i].width = 160;
 				cam[i].height = 120;
