@@ -5,6 +5,7 @@ project(surveyor)
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
+  geometry_msgs
   image_transport
   roscpp
 )
@@ -81,7 +82,7 @@ find_package(OpenCV REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES surveyor
-#  CATKIN_DEPENDS image_transport opencv2 roscpp
+#  CATKIN_DEPENDS geometry_msgs image_transport opencv2 roscpp
 #  DEPENDS system_lib
 )
 
